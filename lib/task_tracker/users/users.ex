@@ -22,7 +22,7 @@ defmodule TaskTracker.Users do
   end
 
   def get_users do
-    query = from(u in User, select:  u.email)
+    query = from(u in User, select:  u.id)
     users = Repo.all(query)
   end
 

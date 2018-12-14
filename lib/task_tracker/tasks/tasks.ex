@@ -21,6 +21,13 @@ defmodule TaskTracker.Tasks do
     Repo.all(Task)
   end
 
+  def get_email(task) do
+    case task.assignedto do
+      nil -> nil
+      user_id -> TaskTracker.Users.get_user!(user_id).email
+    end
+  end
+
   @doc """
   Gets a single task.
 
